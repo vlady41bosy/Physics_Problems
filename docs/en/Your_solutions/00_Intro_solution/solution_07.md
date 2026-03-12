@@ -1,48 +1,49 @@
+## 7. Physics Analysis: Kinematics & Relative Motion
+
+### 1. Problem Statement
+
+A bicycle is **10 meters** from a wall and moves towards it at a constant speed of **$1\text{ m/s}$**. A fly starts from the bicycle and flies towards the wall at **$2\text{ m/s}$**. When it hits the wall, it instantly turns back to the bicycle, and continues this back-and-forth motion. What is the **total distance** the fly travels before the bicycle hits the wall?
+
+---
+
+### 2. Physical Steps
+
+### Step 1: Calculate the Time of Flight ($t$)
+
+In physics, the motion of the fly is constrained by the duration of the bicycle's journey. We first find how long it takes for the bicycle to reach the wall:
 
 
-## 6. Function Analysis: Finding Extrema (Step-by-Step)
+$$\text{Time} (t) = \frac{\text{Distance}}{\text{Velocity}}$$
 
-**The Problem:**
-Consider the function $f(x) = 3x^2 - 12x + 7$. Identify any local maxima or minima.
+$$t = \frac{10\text{ m}}{1\text{ m/s}} = \mathbf{10\text{ seconds}}$$
 
-### Step 1: Find the Derivative ($f'(x)$)
+### Step 2: Calculate the Total Distance ($d$)
 
-The derivative tells us the slope of the curve. At a peak or a valley, the curve is flat, meaning the slope (derivative) must be **0**.
-
-Using the Power Rule:
-
-* For $3x^2$: $2 \cdot 3x = 6x$
-* For $-12x$: $1 \cdot -12 = -12$
-* For $7$: The derivative is $0$.
-
-$$f'(x) = 6x - 12$$
-
-### Step 2: Set the Derivative to Zero
-
-To find the "Critical Point" (where the curve turns around), we solve for $x$ when the slope is zero:
+Since the fly moves at a constant speed, the direction changes (velocity vectors) do not matter for the total path length. We only need the scalar speed and the total time:
 
 
-$$6x - 12 = 0$$
+$$\text{Distance} (d) = \text{Speed} \times \text{Time}$$
 
-$$6x = 12$$
+$$d = 2\text{ m/s} \times 10\text{ s}$$
 
-$$\mathbf{x = 2}$$
+$$\mathbf{\text{Total Distance} = 20\text{ meters}}$$
 
-### Step 3: Find the $y$-coordinate
+---
 
-Now that we know the turning point happens at $x = 2$, we plug that back into the **original** function to find the height:
+### 3. Physical Meaning (The "Trick")
 
+While the fly's path is a complex series of back-and-forth segments (a converging infinite series), the **physics** of the problem is governed by a single shared variable: **Time**.
 
-$$f(2) = 3(2)^2 - 12(2) + 7$$
+* **Constant Speed:** The fly's speed is independent of its direction.
+* **System Constraint:** The "event" (the bicycle hitting the wall) dictates when the fly must stop, regardless of how many times it turned around.
 
-$$f(2) = 3(4) - 24 + 7$$
+---
 
-$$f(2) = 12 - 24 + 7 = \mathbf{-5}$$
+### 4. Key Concepts
 
-### Step 4: Determine if it's a Max or Min
+* **Kinematics:** The study of motion without considering its causes.
+* **Scalar vs. Vector:** We use **speed** (scalar) to find total distance, whereas **velocity** (vector) would be used to find displacement.
+* **Constraint-Based Modeling:** Solving a problem by identifying the limiting factor (in this case, the bicycle's time).
 
-Since the leading term ($3x^2$) is **positive**, the parabola opens **upward** (like a smile). This means the turning point at the bottom is a **Local Minimum**.
-
-**Result:**
-The function has a **Local Minimum at (2, -5)**.
+---
 
