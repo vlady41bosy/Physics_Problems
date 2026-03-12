@@ -55,4 +55,6 @@ $$6 + 6 = 12$$
 
 ---
 
-**Would you like to move on to the Step-by-Step for the "Universal Law of Gravitation" (Problem 3) next?**
+
+
+
