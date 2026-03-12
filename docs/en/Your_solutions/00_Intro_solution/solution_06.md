@@ -5,7 +5,7 @@
 **The Problem:**
 Consider the function $f(x) = 3x^2 - 12x + 7$. Identify any local maxima or minima.
 
-### Step 1: Find the Derivative ($f'(x)$)
+### Step 1: Find the Derivative 
 
 The derivative tells us the slope of the curve. At a peak or a valley, the curve is flat, meaning the slope (derivative) must be **0**.
 
@@ -47,5 +47,6 @@ Since the leading term ($3x^2$) is **positive**, the parabola opens **upward** (
 The function has a **Local Minimum at (2, -5)**.
 
 ---
+
 
 
