@@ -1,8 +1,7 @@
 
-
 Think of Alice and Bob as two people walking along two different straight paths in a giant park. We need to figure out if their walking paths ever cross, if they bump into each other, and if not, how close they get.
 
-
+Here is the step-by-step way to solve and understand this problem.
 
 ### Step 1: Do their paths cross? (The Intersection)
 
@@ -61,3 +60,5 @@ Finally, we plug that time back into our squared distance formula:
 $$D^2\left(\frac{33}{26}\right) = \frac{81}{26}$$
 
 **Conclusion:** To get the actual minimum distance, we just take the square root of that final number. $\sqrt{\frac{81}{26}}$ gives us roughly **1.765 units of distance**.
+
+---
