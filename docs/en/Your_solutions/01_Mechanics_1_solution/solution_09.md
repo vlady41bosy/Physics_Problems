@@ -1,4 +1,9 @@
-9 Momentum
+9. Momentum Comparison
+Which has greater momentum: a 2-gram fly flying at 
+10
+ m/s or a 60-gram tennis ball moving at 
+1
+ m/s?
 
 Think of **momentum** as a way to measure "how hard it is to stop a moving object." To find it, you only need to look at two things:
 1.  **Mass ($m$):** How heavy the object is.
