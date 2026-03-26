@@ -1,4 +1,4 @@
-### Understanding Momentum
+9 Momentum
 
 Think of **momentum** as a way to measure "how hard it is to stop a moving object." To find it, you only need to look at two things:
 1.  **Mass ($m$):** How heavy the object is.
