@@ -10,12 +10,17 @@ First, we just want to know if the "roads" they are walking on cross each other.
 
 To find out if the paths cross, we see if there is an $(x, y)$ location that exists on both paths. We set their $x$-coordinates and $y$-coordinates equal to each other:
 $$2 + t_A = 2t_B - 1$$
+
 $$8 - 3t_A = 2t_B + 2$$
 
 Now, we solve for the times. From the first equation, we can see that $t_A = 2t_B - 3$. If we plug that into the second equation:
-$$8 - 3(2t_B - 3) = 2t_B + 2$$
+
+$$8 - 3(2t_B - 3) = 2t_B + 2$$ 
+
 $$8 - 6t_B + 9 = 2t_B + 2$$
+
 $$17 - 6t_B = 2t_B + 2$$
+
 $$15 = 8t_B$$
 
 This gives us Bob's time at the crossing point: **1.875**. 
@@ -43,15 +48,19 @@ Since they miss each other, we want to find out exactly how close they were at t
 
 To make the calculus much easier, we calculate the *squared* distance, written as $D^2(t)$, so we don't have to deal with messy square roots right away. We subtract Alice's coordinates from Bob's coordinates:
 * Distance between their $x$-positions: $(2t - 1) - (2 + t) = t - 3$
+  
 * Distance between their $y$-positions: $(2t + 2) - (8 - 3t) = 5t - 6$
 
 Now, we square those and add them together:
 $$D^2(t) = (t - 3)^2 + (5t - 6)^2$$
+
 $$D^2(t) = (t^2 - 6t + 9) + (25t^2 - 60t + 36)$$
+
 $$D^2(t) = 26t^2 - 66t + 45$$
 
 To find the exact moment they are closest (the absolute minimum of this equation), we take the first derivative and set it to zero:
 $$\frac{d}{dt}[D^2(t)] = 52t - 66$$
+
 $$0 = 52t - 66$$
 
 Solving this gives us $t = \frac{66}{52}$, which simplifies to $\frac{33}{26}$ (or about **1.27**). This is the exact time they are closest to each other!
