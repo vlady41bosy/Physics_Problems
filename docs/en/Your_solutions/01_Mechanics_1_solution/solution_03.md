@@ -1,56 +1,63 @@
-## 3. Path Intersection Solutions
 
-To solve this problem completely, we must distinguish between the *paths* intersecting (crossing the same point in space at any time) and the *objects* colliding (arriving at the exact same point in space at the exact same time).
 
-* **Determine if the paths intersect:**
-    To find if the geometric lines cross, we need to see if there is a coordinate $(x, y)$ that lies on both paths. This means Alice reaches the point at some time $t_A$ and Bob reaches it at some time $t_B$. We set their coordinate equations equal to each other:
-    $$x_A(t_A) = x_B(t_B) \implies 2 + t_A = 2t_B - 1$$
-    $$y_A(t_A) = y_B(t_B) \implies 8 - 3t_A = 2t_B + 2$$
-    
-    From the $x$-equation, we can isolate $t_A$:
-    $$t_A = 2t_B - 3$$
-    
-    Substitute this into the $y$-equation:
-    $$8 - 3(2t_B - 3) = 2t_B + 2$$
-    $$8 - 6t_B + 9 = 2t_B + 2$$
-    $$17 - 6t_B = 2t_B + 2$$
-    $$15 = 8t_B \implies t_B = \frac{15}{8} = 1.875$$
-    
-    Now solve for $t_A$:
-    $$t_A = 2(1.875) - 3 = 3.75 - 3 = 0.75$$
-    
-    Because we found valid, real times for both variables, **yes, their paths intersect**. By plugging these times back into their respective equations, we find the intersection point occurs at $(2.75, 5.75)$.
+Think of Alice and Bob as two people walking along two different straight paths in a giant park. We need to figure out if their walking paths ever cross, if they bump into each other, and if not, how close they get.
 
-* **Determine if they collide:**
-    A collision requires them to be at the intersection point at the exact same time ($t_A = t_B = t$). We can test this by setting their $x$ and $y$ equations equal to each other using a single time variable $t$:
-    $$2 + t = 2t - 1 \implies t = 3$$
-    $$8 - 3t = 2t + 2 \implies 5t = 6 \implies t = 1.2$$
-    
-    Since $3 \neq 1.2$, Alice and Bob arrive at the intersection point at different times. Therefore, **they do not collide**.
 
-* **Determine the minimum distance and when it occurs:**
-    Since they do not collide, we need to find the function for the distance $D(t)$ between them at any given time $t$. To make the calculus easier, we will minimize the square of the distance, $D^2(t)$, using the distance formula:
-    $$D^2(t) = (x_B(t) - x_A(t))^2 + (y_B(t) - y_A(t))^2$$
-    
-    First, find the differences in their coordinates:
-    $$\Delta x = (2t - 1) - (2 + t) = t - 3$$
-    $$\Delta y = (2t + 2) - (8 - 3t) = 5t - 6$$
-    
-    Now construct the squared distance function:
-    $$D^2(t) = (t - 3)^2 + (5t - 6)^2$$
-    $$D^2(t) = (t^2 - 6t + 9) + (25t^2 - 60t + 36)$$
-    $$D^2(t) = 26t^2 - 66t + 45$$
-    
-    To find the minimum, take the first derivative with respect to $t$ and set it to zero:
-    $$\frac{d}{dt}[D^2(t)] = 52t - 66$$
-    $$0 = 52t - 66 \implies t = \frac{66}{52} = \frac{33}{26} \approx 1.269 \text{ units of time}$$
-    
-    This is the time when they are closest. To find the minimum distance, plug $t = \frac{33}{26}$ back into the $D^2(t)$ function:
-    $$D^2\left(\frac{33}{26}\right) = 26\left(\frac{33}{26}\right)^2 - 66\left(\frac{33}{26}\right) + 45$$
-    $$D^2\left(\frac{33}{26}\right) = \frac{1089}{26} - \frac{2178}{26} + \frac{1170}{26} = \frac{81}{26}$$
-    
-    Taking the square root gives the minimum distance:
-    $$D = \sqrt{\frac{81}{26}} = \frac{9}{\sqrt{26}} \approx 1.765 \text{ units of distance}$$
+
+### Step 1: Do their paths cross? (The Intersection)
+
+
+First, we just want to know if the "roads" they are walking on cross each other. They could reach this crossing point at completely different times of the day, so we have to give them separate stopwatches: $t_A$ for Alice and $t_B$ for Bob.
+
+To find out if the paths cross, we see if there is an $(x, y)$ location that exists on both paths. We set their $x$-coordinates and $y$-coordinates equal to each other:
+$$2 + t_A = 2t_B - 1$$
+$$8 - 3t_A = 2t_B + 2$$
+
+Now, we solve for the times. From the first equation, we can see that $t_A = 2t_B - 3$. If we plug that into the second equation:
+$$8 - 3(2t_B - 3) = 2t_B + 2$$
+$$8 - 6t_B + 9 = 2t_B + 2$$
+$$17 - 6t_B = 2t_B + 2$$
+$$15 = 8t_B$$
+
+This gives us Bob's time at the crossing point: **1.875**. 
+If we plug 1.875 back into Alice's equation ($t_A = 2(1.875) - 3$), we get Alice's time: **0.75**.
+
+**Conclusion:** Because both stopwatches show real times, **yes, their paths intersect**. If you plug those times back into the very first coordinate equations, you will find the exact crossing point on the map is **(2.75, 5.75)**.
 
 ---
 
+### Step 2: Do they bump into each other? (The Collision)
+For a collision to happen, Alice and Bob must arrive at that exact crossing point at the *exact same time*. Now, they share the same stopwatch, so we just use $t$.
+
+Let's test if this is possible by setting their $x$ and $y$ coordinates equal using the same $t$:
+* **X-coordinates:** $2 + t = 2t - 1$ (This solves to $t = 3$)
+* **Y-coordinates:** $8 - 3t = 2t + 2$ (This solves to $t = 1.2$)
+
+**Conclusion:** Alice reaches the crossing point when the stopwatch says 1.2, but Bob doesn't get there until the stopwatch says 3. Since they are there at different times, **they do not collide**. 
+
+---
+
+### Step 3: What is their closest call? (Minimum Distance)
+
+
+Since they miss each other, we want to find out exactly how close they were at their nearest point. To do this, we use the standard distance formula between two points. 
+
+To make the calculus much easier, we calculate the *squared* distance, written as $D^2(t)$, so we don't have to deal with messy square roots right away. We subtract Alice's coordinates from Bob's coordinates:
+* Distance between their $x$-positions: $(2t - 1) - (2 + t) = t - 3$
+* Distance between their $y$-positions: $(2t + 2) - (8 - 3t) = 5t - 6$
+
+Now, we square those and add them together:
+$$D^2(t) = (t - 3)^2 + (5t - 6)^2$$
+$$D^2(t) = (t^2 - 6t + 9) + (25t^2 - 60t + 36)$$
+$$D^2(t) = 26t^2 - 66t + 45$$
+
+To find the exact moment they are closest (the absolute minimum of this equation), we take the first derivative and set it to zero:
+$$\frac{d}{dt}[D^2(t)] = 52t - 66$$
+$$0 = 52t - 66$$
+
+Solving this gives us $t = \frac{66}{52}$, which simplifies to $\frac{33}{26}$ (or about **1.27**). This is the exact time they are closest to each other!
+
+Finally, we plug that time back into our squared distance formula:
+$$D^2\left(\frac{33}{26}\right) = \frac{81}{26}$$
+
+**Conclusion:** To get the actual minimum distance, we just take the square root of that final number. $\sqrt{\frac{81}{26}}$ gives us roughly **1.765 units of distance**.
