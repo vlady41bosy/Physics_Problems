@@ -1,8 +1,6 @@
-Vector math can definitely look like alphabet soup with all those little hats ($\hat{i}$ and $\hat{j}$) and arrows, but the underlying concept is actually very intuitive.
 
-Here is a simple way to break down position, velocity, and acceleration for your teacher.
 
-### The Big Idea: The Car Trip
+
 
 
 Think of this like tracking a remote-controlled car driving on a huge, flat parking lot:
