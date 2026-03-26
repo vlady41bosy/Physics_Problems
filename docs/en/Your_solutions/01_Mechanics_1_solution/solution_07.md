@@ -1,29 +1,70 @@
-## 7. Elimination of time and interpretation of acceleration Solutions
 
-* **Eliminate the parameter $t$:**
-    To find the path equation $y(x)$, we need to relate the $x$ and $y$ equations by removing $t$. 
-    First, isolate $t^2$ from the horizontal position equation:
-    $$x = 2t^2 \implies t^2 = \frac{x}{2}$$
-    To easily substitute this into the $y(t)$ equation, we can manipulate both equations to feature $t^6$. Cube the $x$ relationship and square the $y$ relationship:
-    $$(t^2)^3 = \left(\frac{x}{2}\right)^3 \implies t^6 = \frac{x^3}{8}$$
-    $$y = 3t^3 \implies y^2 = 9t^6$$
-    Substitute the expression for $t^6$ into the squared $y$ equation:
+
+### **1. Finding the Path (Eliminating the Stopwatch)**
+
+**The Goal:** We have an object whose horizontal position ($x = 2t^2$) and vertical position ($y = 3t^3$) are both dictated by a hidden stopwatch: time ($t$). We want to remove the stopwatch ($t$) to see the actual path drawn on the ground—an equation containing only $x$ and $y$.
+
+**The Math Trick:** Trying to solve directly for $t$ gives us messy square roots. Instead, let's find a common ground. The powers in our equations are $2$ and $3$. Their least common multiple is $6$. Let's turn both equations into expressions of $t^6$ so we can link them together.
+
+* **Step 1: Modify the $x$ equation to get $t^6$.**
+    $$x = 2t^2 \implies \frac{x}{2} = t^2$$
+    To turn $t^2$ into $t^6$, we cube both sides:
+    $$\left(\frac{x}{2}\right)^3 = (t^2)^3 \implies \frac{x^3}{8} = t^6$$
+
+* **Step 2: Modify the $y$ equation to get $t^6$.**
+    $$y = 3t^3$$
+    To turn $t^3$ into $t^6$, we square both sides:
+    $$y^2 = 9t^6$$
+
+* **Step 3: Connect them.**
+    Since we now know that $t^6$ is exactly equal to $\frac{x^3}{8}$, we can just swap that into our $y$ equation:
     $$y^2 = 9\left(\frac{x^3}{8}\right) \implies y^2 = \frac{9}{8}x^3$$
-    This is the Cartesian equation for the path, which represents a semi-cubical parabola. Note that since $x = 2t^2$, the value of $x$ will always be non-negative.
+    
+> **Quick Note:** Because our original equation was $x = 2t^2$, and squaring any number always yields a positive result, the object can never travel into negative $x$ territory.
 
-* **Draw the trajectory:**
-    The trajectory is a curve in the $xy$-plane that is symmetric about the x-axis and opens to the right. As $t$ increases from negative values to zero, the object moves from the lower quadrant toward the origin $(0,0)$ along the bottom branch of the curve. As $t$ increases from zero to positive values, the object moves away from the origin into the upper right quadrant along the top branch. 
+---
 
-* **Calculate $\vec{v}(t)$, $|\vec{v}(t)|$, $\vec{a}(t)$ and $|\vec{a}(t)|$:**
-    The velocity vector $\vec{v}(t)$ is the first time derivative of the position components:
-    $$\vec{v}(t) = \frac{dx}{dt}\hat{i} + \frac{dy}{dt}\hat{j} = 4t\hat{i} + 9t^2\hat{j}$$
-    The magnitude of the velocity (speed) $|\vec{v}(t)|$ is found using the Pythagorean theorem:
-    $$|\vec{v}(t)| = \sqrt{(4t)^2 + (9t^2)^2} = \sqrt{16t^2 + 81t^4} = |t|\sqrt{16 + 81t^2}$$
-    The acceleration vector $\vec{a}(t)$ is the first time derivative of the velocity components:
-    $$\vec{a}(t) = \frac{dv_x}{dt}\hat{i} + \frac{dv_y}{dt}\hat{j} = 4\hat{i} + 18t\hat{j}$$
-    The magnitude of the acceleration $|\vec{a}(t)|$ is:
-    $$|\vec{a}(t)| = \sqrt{4^2 + (18t)^2} = \sqrt{16 + 324t^2} = 2\sqrt{4 + 81t^2}$$
 
-* **Is the acceleration constant?**
-    No, the acceleration is not constant. While the horizontal component of the acceleration is a constant $4$, the vertical component is $18t$. Because the vertical component depends on the variable $t$, the overall acceleration vector changes continuously over time in both magnitude and direction.
 
+---
+
+### **3. Finding Velocity and Acceleration**
+
+* **Velocity ($\vec{v}$):** This is just how fast position is changing. To find it, take the first derivative of the $x$ and $y$ equations using the basic power rule:
+    * $2t^2$ becomes $4t$\
+      
+    * $3t^3$ becomes $9t^2$
+      
+    $$\vec{v}(t) = 4t\hat{i} + 9t^2\hat{j}$$
+
+* **Speed ($|\vec{v}|$):** This is the magnitude of the velocity vector (what you would read on a speedometer). We just use the Pythagorean theorem ($a^2 + b^2 = c^2$) on our velocity parts:
+    $$|\vec{v}(t)| = \sqrt{(4t)^2 + (9t^2)^2} = \sqrt{16t^2 + 81t^4}$$
+    To clean it up, factor out the common $t^2$ from the square root:
+    $$|\vec{v}(t)| = |t|\sqrt{16 + 81t^2}$$
+
+* **Acceleration ($\vec{a}$):** This is how fast the *velocity* is changing. We take the derivative one more time, now looking at our velocity equation:
+    * $4t$ becomes $4$
+      
+    * $9t^2$ becomes $18t$
+      
+    $$\vec{a}(t) = 4\hat{i} + 18t\hat{j}$$
+
+* **Acceleration Magnitude ($|\vec{a}|$):** We use the Pythagorean theorem again on our new acceleration parts:
+    $$|\vec{a}(t)| = \sqrt{4^2 + (18t)^2} = \sqrt{16 + 324t^2}$$
+    To clean this up, we can pull out a $4$ from both terms:
+    $$|\vec{a}(t)| = 2\sqrt{4 + 81t^2}$$
+
+---
+
+### **4. Is the acceleration constant?**
+
+**Short answer:** No. 
+
+**The Explanation:** "Constant" means something stays exactly the same, no matter what. Let's look at our acceleration vector: $\vec{a}(t) = 4\hat{i} + 18t\hat{j}$. 
+* The horizontal push ($4\hat{i}$) is a solid $4$. It never changes.
+* The vertical push ($18t\hat{j}$) has a $t$ attached to it. 
+
+Because time ($t$) keeps ticking and changing, that vertical push is going to keep changing right along with it. Therefore, the overall acceleration is not constant.
+
+---
+Would you like me to walk through the power rule derivatives for the velocity and acceleration steps in more detail?
