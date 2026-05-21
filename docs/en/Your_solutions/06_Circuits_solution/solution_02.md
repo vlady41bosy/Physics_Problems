@@ -1,73 +1,60 @@
-Here is the step-by-step mathematical breakdown for every possible way to arrange exactly three identical $1 \text{ \Omega}$ resistors.
+To find all the possible equivalent resistances, we have to look at all the different ways we can wire these identical $1\ \Omega$ resistors together.
 
-There are exactly four distinct ways to connect three resistors in a circuit:
+Usually, this classic problem implies using **all three** resistors in the circuit, so let's start with those four unique combinations. Then, I'll also list the values you can get if you're allowed to leave one or two resistors in the box.
+
+### **Combinations Using All 3 Resistors**
 
 **1. All Three in Series**
-In this configuration, the current passes through each resistor one after the other. We simply add their values.
+When connected end-to-end, the resistances simply add up.
 
-
-$$R_{eq} = R_1 + R_2 + R_3$$
-
-$$R_{eq} = 1 + 1 + 1$$
-
-$$R_{eq} = 3 \text{ \Omega}$$
+* **Formula:** $R = R_1 + R_2 + R_3$
+* **Calculation:** $1 + 1 + 1 = 3$
+* **Result:** **$3\ \Omega$**
 
 **2. All Three in Parallel**
-In this configuration, the resistors are placed on separate branches, meaning the current splits among them.
+When all three are connected side-by-side, the current splits three ways.
 
+* **Formula:** $\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}$
+* **Calculation:** $\frac{1}{R_{eq}} = 1 + 1 + 1 = 3$
+* **Result:** **$\frac{1}{3}\ \Omega$** (approx. $0.33\ \Omega$)
 
-$$\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}$$
+**3. Two in Parallel, Series with the Third**
+First, put two resistors in parallel. Their equivalent resistance is $\frac{1}{2}\ \Omega$. Then, connect that pair in series with the final $1\ \Omega$ resistor.
 
-$$\frac{1}{R_{eq}} = \frac{1}{1} + \frac{1}{1} + \frac{1}{1}$$
+* **Calculation:** $0.5 + 1 = 1.5$
+* **Result:** **$1.5\ \Omega$** (or $\frac{3}{2}\ \Omega$)
 
-$$\frac{1}{R_{eq}} = 3$$
+**4. Two in Series, Parallel with the Third**
+First, put two resistors in series. Their equivalent resistance is $2\ \Omega$. Then, connect that pair in parallel with the final $1\ \Omega$ resistor.
 
-$$R_{eq} = \frac{1}{3} \text{ \Omega} \approx 0.33 \text{ \Omega}$$
-
-**3. Two in Parallel, Connected in Series with the Third**
-First, current splits between two parallel resistors, then the combined current passes through the final resistor.
-
-* Calculate the parallel pair:
-
-$$R_{parallel} = \frac{1}{\frac{1}{1} + \frac{1}{1}} = \frac{1}{2} \text{ \Omega}$$
-
-
-* Add the third resistor in series:
-
-$$R_{eq} = \frac{1}{2} + 1$$
-
-
-$$R_{eq} = \frac{3}{2} \text{ \Omega} = 1.5 \text{ \Omega}$$
-
-
-
-**4. Two in Series, Connected in Parallel with the Third**
-Here, one branch has two resistors in series, and the second branch has just one resistor.
-
-* Calculate the series branch:
-
-$$R_{series} = 1 + 1 = 2 \text{ \Omega}$$
-
-
-* Calculate the parallel combination of that branch with the third resistor:
-
-$$R_{eq} = \frac{1}{\frac{1}{2} + \frac{1}{1}}$$
-
-
-$$R_{eq} = \frac{1}{\frac{3}{2}}$$
-
-
-$$R_{eq} = \frac{2}{3} \text{ \Omega} \approx 0.67 \text{ \Omega}$$
-
-
+* **Formula:** $\frac{1}{R_{eq}} = \frac{1}{2} + \frac{1}{1}$
+* **Calculation:** $\frac{1}{R_{eq}} = \frac{1}{2} + \frac{2}{2} = \frac{3}{2}$
+* **Result:** **$\frac{2}{3}\ \Omega$** (approx. $0.67\ \Omega$)
 
 ---
 
-### **Final List of Unique Values**
+### **Combinations Using Fewer Than 3 Resistors**
 
-By combining exactly three $1 \text{ \Omega}$ resistors, you can create the following four equivalent resistances:
+If the rules allow you to use a subset of your supply, you can create three more unique values:
 
-* **$3 \text{ \Omega}$**
-* **$1.5 \text{ \Omega}$** (or $\frac{3}{2} \text{ \Omega}$)
-* **$0.67 \text{ \Omega}$** (or $\frac{2}{3} \text{ \Omega}$)
-* **$0.33 \text{ \Omega}$** (or $\frac{1}{3} \text{ \Omega}$)
+**5. Two in Series** (Leaving one unused)
+
+* **Result:** **$2\ \Omega$**
+
+**6. Two in Parallel** (Leaving one unused)
+
+* **Result:** **$0.5\ \Omega$** (or $\frac{1}{2}\ \Omega$)
+
+**7. Just One Resistor** (Leaving two unused)
+
+* **Result:** **$1\ \Omega$**
+
+### **The Final List**
+
+If you must use exactly three resistors, you can create **4 unique values**:
+
+* **$3\ \Omega, 1.5\ \Omega, \frac{2}{3}\ \Omega, \frac{1}{3}\ \Omega$**
+
+If you can use *up to* three resistors, you can create a total of **7 unique values**:
+
+* **$3\ \Omega, 2\ \Omega, 1.5\ \Omega, 1\ \Omega, \frac{2}{3}\ \Omega, 0.5\ \Omega, \frac{1}{3}\ \Omega$**
