@@ -1,68 +1,80 @@
-Here is the step-by-step solution to find the equivalent resistance of the mixed circuit shown in the image.
+## 3. Mixed Circuit
 
-To solve this, we need to break the circuit down into its basic nodes (junctions) and count the resistors along each path. Every grey rectangular box represents a 5 Ω resistor.
+We are calculating the total equivalent resistance of a complex mixed circuit. By carefully tracing the nodes, we can identify 8 distinct resistors (all 5 Ω). The circuit cannot be solved using simple series/parallel rules alone because it contains a bridge-like structure. We will use a Delta-Wye ($\Delta$-Y) Transformation to simplify it.
 
-### **1. Circuit Breakdown (Node Analysis)**
+---
 
-Let's trace the pathways to simplify the diagram into standard parallel and series sections:
+### Part A: Network Topology
 
-* **Node A (Input Junction):** Look at the left side. The input terminal, the dot on the left vertical wire, and the wire leading to the bottom resistor are all electrically the same point.
-* **Node B (Top Junction):** The distinct dot at the top middle of the circuit where three paths meet.
-* **Node C (Output Junction):** Look at the right side. The output terminal, the dot on the right, and the wire coming from the bottom resistor all meet here.
+Let's label the input terminals as Node L (left) and Node R (right).
+* There is a bottom resistor connected directly between Node L and Node R. We will set this aside and solve the entire "upper" network first.
+* On the far left, a vertical resistor and a top horizontal resistor are connected in series since they meet at a corner with no other branching connections. Their combined resistance is $5 + 5 = 10 \ \Omega$.
+* The center of the circuit contains a delta ($\Delta$) loop formed by three 5 Ω resistors: the top-middle vertical, the bottom-middle vertical, and the top-right vertical.
 
-### **2. Identify the Branches**
+### Part B: Delta-Wye Transformation
 
-Now, let's count the resistors ($5 \text{ \Omega}$ each) lying on the paths between these nodes:
+We convert the central delta ($\Delta$) into a wye (Y) configuration. Since all three resistors in the delta are 5 Ω, the three new resistors in the wye configuration ($R_Y$) will be equal. 
 
-* **Branch 1 (Node A to Node B - Outer Left):** This path goes up and turns right. It contains **2 resistors** (1 vertical, 1 horizontal).
-* Resistance = 5 Ω + 5 Ω = 10 Ω
+The formula for converting identical delta resistors to a wye network is:
 
+$$
+R_Y = \frac{R_\Delta \cdot R_\Delta}{R_\Delta + R_\Delta + R_\Delta} = \frac{R_\Delta}{3}
+$$
 
-* **Branch 2 (Node A to Node B - Inner):** This path goes right from the left dot, then turns straight up. It contains **3 resistors** (1 horizontal, 2 vertical).
-* Resistance = 5 Ω + 5 Ω + 5 Ω = 15 Ω
+$$
+R_Y = \frac{5}{3} \ \Omega
+$$
 
+Replacing the delta with a central wye node (let's call it Node W) breaks the complex bridge into simpler series and parallel branches that we can easily calculate.
 
-* **Branch 3 (Node B to Node C - Right):** This path goes right from the top dot, then straight down to the bottom wire. It contains **2 resistors** (both vertical).
-* Resistance = 5 Ω + 5 Ω = 10 Ω
+### Part C: Solving the Upper Network
 
+Now we calculate the equivalent resistance of the upper network ($R_{upper}$) using the new wye resistors:
 
-* **Branch 4 (Node A to Node C - Bottom):** This is the direct bottom wire path containing **1 resistor** (horizontal).
-* Resistance = 5 Ω
+1. Parallel Branches to Node W:
+From Node L, the current splits into two parallel branches to reach the new Node W:
+* Branch 1: Goes through the 10 Ω series combination, then through one $5/3 \ \Omega$ wye resistor.
+    $$R_{branch1} = 10 + \frac{5}{3} = \frac{35}{3} \ \Omega$$
+* Branch 2: Goes through the inner-horizontal 5 Ω resistor, then through another $5/3 \ \Omega$ wye resistor.
+    $$R_{branch2} = 5 + \frac{5}{3} = \frac{20}{3} \ \Omega$$
 
+Now we calculate the equivalent resistance of these two parallel branches ($R_p$):
+$$
+R_p = \frac{\frac{35}{3} \cdot \frac{20}{3}}{\frac{35}{3} + \frac{20}{3}} = \frac{\frac{700}{9}}{\frac{55}{3}} = \frac{140}{33} \ \Omega
+$$
 
+2. Series Path to Node R:
+From Node W, the path continues through the third $5/3 \ \Omega$ wye resistor, and then through the bottom-right vertical 5 Ω resistor to reach the final right terminal.
+$$
+R_{series} = \frac{5}{3} + 5 = \frac{20}{3} = \frac{220}{33} \ \Omega
+$$
 
-### **3. Calculate Equivalent Resistance**
+3. Total Upper Network:
+By adding the parallel section to the series section, we get the total resistance for everything above the bottom wire:
 
-With our branches defined, we can collapse the circuit step-by-step:
+$$
 
-**Step A: Parallel Branches**
-Branch 1 and Branch 2 run parallel to each other between Node A and Node B. Let's calculate their equivalent resistance ($R_{AB}$):
+R_{upper} = R_p + R_{series} = \frac{140}{33} + \frac{220}{33} = \frac{360}{33} = \frac{120}{11} \ \Omega
 
+$$
 
-$$R_{AB} = \frac{10 \cdot 15}{10 + 15}$$
+### Part D: Total Equivalent Resistance
 
-$$R_{AB} = \frac{150}{25}$$
+Finally, the entire upper network is in parallel with the 5 Ω bottom resistor. 
 
-$$R_{AB} = 6 \text{ \Omega}$$
+$$
+R_{eq} = \frac{R_{upper} \cdot 5}{R_{upper} + 5}
+$$
 
-**Step B: Series Addition**
-This combined $R_{AB}$ section is perfectly in series with Branch 3 (which flows from Node B down to Node C). Let's find the total resistance of this entire upper section ($R_{upper}$):
+$$
+R_{eq} = \frac{\frac{120}{11} \cdot 5}{\frac{120}{11} + 5} = \frac{\frac{600}{11}}{\frac{175}{11}}
+$$
 
+$$
+R_{eq} = \frac{600}{175} = \frac{24}{7} \ \Omega
+$$
 
-$$R_{upper} = R_{AB} + \text{Branch 3}$$
+### Final Answer
 
-$$R_{upper} = 6 + 10$$
-
-$$R_{upper} = 16 \text{ \Omega}$$
-
-**Step C: Final Parallel Calculation**
-Finally, this entire upper section ($16 \text{ \Omega}$) is in parallel with the direct bottom Branch 4 ($5 \text{ \Omega}$) between the main input and output nodes (A and C).
-
-
-$$R_{eq} = \frac{R_{upper} \cdot \text{Branch 4}}{R_{upper} + \text{Branch 4}}$$
-
-$$R_{eq} = \frac{16 \cdot 5}{16 + 5}$$
-
-$$R_{eq} = \frac{80}{21} \text{ \Omega}$$
-
-**Answer:** The equivalent resistance of the circuit is **80/21 Ω**, or approximately **3.81 Ω**.
+* The equivalent resistance of the entire mixed circuit is exactly 24/7 Ω.
+* In decimal form, this is approximately 3.43 Ω.
